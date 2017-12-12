@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    models:
+      refuel: Recarga
+    attributes:
+      refuel:
+        date: Fecha
+        odometer: Kilometraje 
+        volume: Litros
+        price: Precio/litro
+        cost: Coste
+        consumption: Consumo
+  layout:
+    latest-refuels: Últimos Repostajes
+    new-refuel: Nuevo Repostaje

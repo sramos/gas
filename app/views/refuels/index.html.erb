@@ -1,0 +1,60 @@
+
+<section class="content-header">
+</section>
+<section class="content">
+  <!-- Main row -->
+  <div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title"><%= I18n.t("layout.latest-refuels") %></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove">
+              <i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <div class="table-responsive">
+              <table class="table no-margin">
+                <thead>
+                  <tr>
+                    <th><%= I18n.t(:date, scope: "activerecord.attributes.refuel") %></th>
+                    <th><%= I18n.t(:odometer, scope: "activerecord.attributes.refuel") %></th>
+                    <th><%= I18n.t(:volume, scope: "activerecord.attributes.refuel") %></th>
+                    <th><%= I18n.t(:price, scope: "activerecord.attributes.refuel") %></th>
+                    <th><%= I18n.t(:cost, scope: "activerecord.attributes.refuel") %></th>
+                    <th><%= I18n.t(:consumption, scope: "activerecord.attributes.refuel") %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @refuels.each do |refuel| %>
+                    <tr>
+                      <td><%= refuel.date %></td>
+                      <td><%= refuel.odometer %></td>
+                      <td><%= refuel.volume %></td>
+                      <td><%= refuel.price %></td>
+                      <td><%= refuel.cost %></td>
+                      <td><%= refuel.consumption %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <!-- /.table-responsive -->
+          </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+          <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left"><%= I18n.t("layout.new-refuel") %></a>
+        </div>
+      <!-- /.box-footer -->
+      </div>
+    <!-- /.box -->
+    </div>
+  <!-- /.col -->
+  </div>
+</section>
