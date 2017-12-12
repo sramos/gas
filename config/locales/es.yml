@@ -13,3 +13,7 @@ es:
   layout:
     latest-refuels: Últimos Repostajes
     new-refuel: Nuevo Repostaje
+    user:
+      my-profile: Mi perfil
+      sign-out: Salir
+      since: "Miembro desde: %s"
