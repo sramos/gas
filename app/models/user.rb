@@ -4,6 +4,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
 
+  has_many :refuels
+
   validates :name, :email, presence: true
 
   enum rol: [:user, :admin]

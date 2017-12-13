@@ -1,5 +1,7 @@
 class Refuel < ApplicationRecord
-  validates :date, :odometer, :volume, presence: true
+  belongs_to :user
+
+  validates :date, :odometer, :volume, :user_id, presence: true
   validates :odometer, :volume, numericality: { greater_than: 0.0 }
 
   validate :price_and_cost, if: :volume
@@ -35,6 +37,6 @@ class Refuel < ApplicationRecord
 
   # Return previous refuel
   def previous_refuel
-    Refuel.where("odometer < ?", self.odometer).order(:odometer).last
+    Refuel.where(user_id: self.user_id).where("odometer < ?", self.odometer).order(:odometer).last
   end
 end

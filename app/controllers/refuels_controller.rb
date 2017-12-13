@@ -4,7 +4,7 @@ class RefuelsController < ApplicationController
   # GET /refuels
   # GET /refuels.json
   def index
-    @refuels = Refuel.order("date desc")
+    @refuels = current_user.refuels.order("date desc")
   end
 
   # GET /refuels/1
