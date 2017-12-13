@@ -4,6 +4,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
 
+  validates :name, :email, presence: true
+
   enum rol: [:user, :admin]
   after_initialize :set_default_rol, if: :new_record?
 
