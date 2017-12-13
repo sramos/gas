@@ -24,7 +24,13 @@ class RefuelsController < ApplicationController
   # POST /refuels
   # POST /refuels.json
   def create
-    @refuel = Refuel.new
+    @refuel = Refuel.new(refuel_params)
+    @refuel.user_id = current_user.id 
+    if @refuel.save
+      redirect_to refuels_path
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /refuels/1
