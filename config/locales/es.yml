@@ -14,6 +14,12 @@ es:
     latest-refuels: Últimos Repostajes
     new-refuel: Nuevo Repostaje
     user:
+      confirmation-instructions: "Confirmar cuenta"
+      forgot-password: Recordar contraseña 
+      log-in: Acceder
       my-profile: Mi perfil
+      sign-in: Indentificación
       sign-out: Salir
+      sign-up: Registrarse
       since: "Miembro desde: %s"
+      unlock-instructions: "Desbloquear cuenta"

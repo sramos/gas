@@ -14,15 +14,12 @@
       <%= render "layouts/header" %>
       <%= render "layouts/sidebar" %>
       <div class="content-wrapper">
-        <section class="content-messages">
-          <% unless notice.blank? %>
-            <p class="notice"><%= notice %></p>
-          <% end %>
-          <% unless alert.blank? %>
-            <p class="alert"><%= alert %></p>
-          <% end %>
+        <section class="content-header">
         </section>
-        <%= yield %>
+        <section class="content">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+        </section>
       </div>
       <%= render 'layouts/footer' %>
     </div>
