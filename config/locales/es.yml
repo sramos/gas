@@ -10,6 +10,8 @@ es:
         price: Precio/litro
         cost: Coste
         consumption: Consumo
+      user:
+        name: Nombre
   layout:
     latest-refuels: Últimos Repostajes
     new-refuel: Nuevo Repostaje
