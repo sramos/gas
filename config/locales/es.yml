@@ -13,6 +13,7 @@ es:
   layout:
     latest-refuels: Últimos Repostajes
     new-refuel: Nuevo Repostaje
+    save: Guardar
     user:
       confirmation-instructions: "Confirmar cuenta"
       forgot-password: Recordar contraseña 

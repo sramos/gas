@@ -1,6 +1,6 @@
 <%- btn_class = "btn btn-sm btn-default btn-flat" %>
 <%- if controller_name != 'sessions' %>
-  <%= link_to t(".sign_in"), new_session_path(resource_name), class: "btn btn-sm btn-success btn-flat" %>
+  <%= link_to t(".sign_in"), new_session_path(resource_name), class: "btn btn-sm btn-info btn-flat" %>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>

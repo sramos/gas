@@ -1,0 +1,22 @@
+
+<%= form_for( @refuel ) do |f| %>
+  <div class="form-group">
+    <%= f.date_field :date, placeholder: I18n.t("activerecord.attributes.refuel.date"), class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.number_field :odometer, placeholder: I18n.t("activerecord.attributes.refuel.odometer"), class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.number_field :volume, placeholder: I18n.t("activerecord.attributes.refuel.volume"), class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.number_field :price, placeholder: I18n.t("activerecord.attributes.refuel.price"), class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.number_field :cost, placeholder: I18n.t("activerecord.attributes.refuel.cost"), class: "form-control" %>
+  </div>
+
+  <div class="box-footer clearfix actions">
+    <%= f.submit I18n.t("layout.save"), class: "btn btn-flat btn-sm btn-success pull-right" %>
+  </div>
+<% end -%>
