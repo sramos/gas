@@ -17,26 +17,38 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div class="table-responsive">
-            <table class="table no-margin">
+            <table class="table no-margin table-hover">
               <thead>
                 <tr>
                   <th><%= I18n.t(:date, scope: "activerecord.attributes.refuel") %></th>
-                  <th><%= I18n.t(:odometer, scope: "activerecord.attributes.refuel") %></th>
-                  <th><%= I18n.t(:volume, scope: "activerecord.attributes.refuel") %></th>
-                  <th><%= I18n.t(:price, scope: "activerecord.attributes.refuel") %></th>
-                  <th><%= I18n.t(:cost, scope: "activerecord.attributes.refuel") %></th>
-                  <th><%= I18n.t(:consumption, scope: "activerecord.attributes.refuel") %></th>
+                  <th class="text-right"><%= I18n.t(:odometer, scope: "activerecord.attributes.refuel") %></th>
+                  <th class="text-right"><%= I18n.t(:volume, scope: "activerecord.attributes.refuel") %></th>
+                  <th class="text-right"><%= I18n.t(:price, scope: "activerecord.attributes.refuel") %></th>
+                  <th class="text-right"><%= I18n.t(:cost, scope: "activerecord.attributes.refuel") %></th>
+                  <th class="text-right"><%= I18n.t(:consumption, scope: "activerecord.attributes.refuel") %></th>
                 </tr>
               </thead>
               <tbody>
+                <% average_consumption = Refuel.average_consumption %>
                 <% @refuels.each do |refuel| %>
-                  <tr>
-                    <td><%= refuel.date %></td>
-                    <td><%= refuel.odometer %></td>
-                    <td><%= refuel.volume %></td>
-                    <td><%= refuel.price %></td>
-                    <td><%= refuel.cost %></td>
-                    <td><%= refuel.consumption %></td>
+                  <% consumption = refuel.consumption %>
+                  <% color = case
+                             when consumption.blank?
+                               ""
+                             when (consumption - average_consumption) > (average_consumption/10.0)
+                               "danger"
+                             when (consumption - average_consumption) < (average_consumption/10.0)
+                               "success"
+                             else
+                               ""
+                             end %>
+                    <tr class="<%= color %>">
+                    <td><%= I18n.l(refuel.date) %></td>
+                    <td class="text-right"><%= refuel.odometer.to_i %></td>
+                    <td class="text-right"><%= refuel.volume %></td>
+                    <td class="text-right"><%= refuel.price %></td>
+                    <td class="text-right"><%= refuel.cost %></td>
+                    <td class="text-right"><%= sprintf( "%0.02f", consumption ) if consumption %></td>
                   </tr>
                 <% end %>
               </tbody>
