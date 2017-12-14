@@ -29,12 +29,15 @@
                 </tr>
               </thead>
               <tbody>
-                <%= average_consumption = current_user.average_consumption %>
+                <% total_volume = current_user.total_volume %>
+                <% total_odometer = current_user.total_odometer %>
+                <% average_consumption = total_odometer.blank? ? 0.0 : 100 * total_volume / total_odometer %>
+                <!-- Refuelings -->
                 <% @refuels.each do |refuel| %>
                   <% consumption = refuel.consumption %>
                   <% color = case
                              when consumption.blank?
-                               "warning"
+                               ""
                              when (consumption - average_consumption) > (average_consumption/10.0)
                                "danger"
                              when (consumption - average_consumption) < (average_consumption/10.0)
@@ -51,6 +54,17 @@
                     <td class="text-right"><%= sprintf( "%0.02f", consumption ) if consumption %></td>
                   </tr>
                 <% end %>
+                <!-- Average -->
+                <tfoot>
+                  <tr style="font-weight:bold;">
+                    <td>TOTAL</td>
+                    <td class="text-right"><%= total_odometer.to_i %></td>
+                    <td class="text-right"><%= total_volume %></td>
+                    <td class="text-right">&nbsp;</td>
+                    <td class="text-right">&nbsp;</td>
+                    <td class="text-right"><%= sprintf( "%0.02f", average_consumption) %></td>
+                  <tr>
+                </tfoot>
               </tbody>
             </table>
           </div>
