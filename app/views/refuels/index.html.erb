@@ -29,12 +29,12 @@
                 </tr>
               </thead>
               <tbody>
-                <% average_consumption = Refuel.average_consumption %>
+                <%= average_consumption = current_user.average_consumption %>
                 <% @refuels.each do |refuel| %>
                   <% consumption = refuel.consumption %>
                   <% color = case
                              when consumption.blank?
-                               ""
+                               "warning"
                              when (consumption - average_consumption) > (average_consumption/10.0)
                                "danger"
                              when (consumption - average_consumption) < (average_consumption/10.0)

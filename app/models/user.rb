@@ -15,6 +15,16 @@ class User < ApplicationRecord
     rol == 'admin'
   end
 
+  def average_consumption
+    average = 0.0
+    if refuels.count > 1
+      total_odometer = refuels.order(:odometer).last.odometer - refuels.order(:odometer).first.odometer
+      average = 100 * refuels.sum(:volume) / total_odometer
+      puts "Total odometer: " + total_odometer.to_s
+      puts "Total volume: " + Refuel.sum(:volume).to_s
+    end
+    return average
+  end
  private
 
   def set_default_rol

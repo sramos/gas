@@ -17,17 +17,6 @@ class Refuel < ApplicationRecord
     return trav ? (100 * self.volume / trav) : nil
   end
 
-  # Class method to see average consumption
-  def self.average_consumption
-    average = 0.0
-    if Refuel.count > 1
-      total_volume = Refuel.sum(:volume)
-      total_odometer = Refuel.order(:odometer).first.odometer - Refuel.order(:odometer).last.odometer
-      average = 100 * total_volume / total_odometer
-    end
-    return average
-  end
-
  private
 
   # price or cost calculation
