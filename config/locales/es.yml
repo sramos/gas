@@ -13,6 +13,7 @@ es:
       user:
         name: Nombre
   layout:
+    destroy-confirmation: "¿Está seguro de querer borrar el repostaje?"
     latest-refuels: Últimos Repostajes
     new-refuel: Nuevo Repostaje
     save: Guardar

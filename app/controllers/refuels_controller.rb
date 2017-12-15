@@ -5,6 +5,11 @@ class RefuelsController < ApplicationController
   # GET /refuels.json
   def index
     @refuels = current_user.refuels.order("date desc")
+    total_volume = current_user.total_volume
+    total_odometer = current_user.total_odometer
+    @totals = { volume: total_volume,
+                odometer: total_odometer,
+                consumption: total_odometer.blank? ? 0.0 : 100 * total_volume / total_odometer } 
   end
 
   # GET /refuels/1
@@ -41,6 +46,8 @@ class RefuelsController < ApplicationController
   # DELETE /refuels/1
   # DELETE /refuels/1.json
   def destroy
+    puts "---------> Queremos borrar: " + @refuel.inspect
+    #@refuel.destroy
   end
 
 
