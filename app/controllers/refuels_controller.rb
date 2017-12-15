@@ -46,8 +46,12 @@ class RefuelsController < ApplicationController
   # DELETE /refuels/1
   # DELETE /refuels/1.json
   def destroy
-    puts "---------> Queremos borrar: " + @refuel.inspect
-    #@refuel.destroy
+    @refuel.destroy
+    respond_to do |format|
+      format.html { redirect_to refuels_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
 
