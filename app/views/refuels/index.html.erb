@@ -46,7 +46,7 @@
                                ""
                              end %>
                   <tr id="refuel-<%= refuel.id %>" class="<%= color %>">
-                    <td title="<%= I18n.t( (refuel.full ? :full : :partial ), scope: translation_scope)) %>">
+                    <td title="<%= I18n.t( (refuel.full ? :full : :partial), scope: translation_scope) %>">
                       <%= I18n.l(refuel.date) %>
                     </td>
                     <td class="text-right"><%= refuel.odometer.to_i %></td>
