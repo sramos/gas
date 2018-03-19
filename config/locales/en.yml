@@ -9,6 +9,7 @@ es:
         date: Date 
         full: Full reload 
         odometer: Odometer 
+        partial: Partial refill
         price: Price/litre
         volume: Litres
       user:

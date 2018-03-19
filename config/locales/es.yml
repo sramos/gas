@@ -9,6 +9,7 @@ es:
         date: Fecha
         full: Lleno 
         odometer: Kilometraje 
+        partial: Recarga parcial
         price: Precio/litro
         volume: Litros
       user:

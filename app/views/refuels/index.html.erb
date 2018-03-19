@@ -1,4 +1,5 @@
   <!-- Main row -->
+  <% translation_scope = "activerecord.attributes.refuel" %>
   <div class="row">
     <!-- Left col -->
     <div class="col-md-12">
@@ -20,12 +21,12 @@
             <table class="table no-margin table-hover">
               <thead>
                 <tr>
-                  <th><%= I18n.t(:date, scope: "activerecord.attributes.refuel") %></th>
-                  <th class="text-right"><%= I18n.t(:odometer, scope: "activerecord.attributes.refuel") %></th>
-                  <th class="text-right"><%= I18n.t(:volume, scope: "activerecord.attributes.refuel") %></th>
-                  <th class="text-right"><%= I18n.t(:price, scope: "activerecord.attributes.refuel") %></th>
-                  <th class="text-right"><%= I18n.t(:cost, scope: "activerecord.attributes.refuel") %></th>
-                  <th class="text-right"><%= I18n.t(:consumption, scope: "activerecord.attributes.refuel") %></th>
+                  <th><%= I18n.t(:date, scope: translation_scope) %></th>
+                  <th class="text-right"><%= I18n.t(:odometer, scope: translation_scope) %></th>
+                  <th class="text-right"><%= I18n.t(:volume, scope: translation_scope) %></th>
+                  <th class="text-right"><%= I18n.t(:price, scope: translation_scope) %></th>
+                  <th class="text-right"><%= I18n.t(:cost, scope: translation_scope) %></th>
+                  <th class="text-right"><%= I18n.t(:consumption, scope: translation_scope) %></th>
                   <th></th>
                 </tr>
               </thead>
@@ -45,7 +46,9 @@
                                ""
                              end %>
                   <tr id="refuel-<%= refuel.id %>" class="<%= color %>">
-                    <td><%= I18n.l(refuel.date) %></td>
+                    <td title="<%= I18n.t( (refuel.full ? :full : :partial ), scope: translation_scope)) %>">
+                      <%= I18n.l(refuel.date) %>
+                    </td>
                     <td class="text-right"><%= refuel.odometer.to_i %></td>
                     <td class="text-right"><%= sprintf( "%0.02f", refuel.volume ) %></td>
                     <td class="text-right"><%= sprintf( "%0.03f", refuel.price ) %></td>
