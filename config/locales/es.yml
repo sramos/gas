@@ -4,12 +4,13 @@ es:
       refuel: Recarga
     attributes:
       refuel:
-        date: Fecha
-        odometer: Kilometraje 
-        volume: Litros
-        price: Precio/litro
-        cost: Coste
         consumption: Consumo
+        cost: Coste
+        date: Fecha
+        full: Lleno 
+        odometer: Kilometraje 
+        price: Precio/litro
+        volume: Litros
       user:
         name: Nombre
   layout:

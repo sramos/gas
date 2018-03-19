@@ -7,9 +7,11 @@ class RefuelsController < ApplicationController
     @refuels = current_user.refuels.order("date desc")
     total_volume = current_user.total_volume
     total_odometer = current_user.total_odometer
+    total_full_volume = current_user.total_volume(true)
+    total_full_odometer = current_user.total_odometer(true)
     @totals = { volume: total_volume,
                 odometer: total_odometer,
-                consumption: total_odometer.blank? ? 0.0 : 100 * total_volume / total_odometer } 
+                consumption: total_full_odometer.blank? ? 0.0 : 100 * total_full_volume / total_full_odometer }
   end
 
   # GET /refuels/1

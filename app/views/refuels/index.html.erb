@@ -47,9 +47,9 @@
                   <tr id="refuel-<%= refuel.id %>" class="<%= color %>">
                     <td><%= I18n.l(refuel.date) %></td>
                     <td class="text-right"><%= refuel.odometer.to_i %></td>
-                    <td class="text-right"><%= refuel.volume %></td>
-                    <td class="text-right"><%= refuel.price %></td>
-                    <td class="text-right"><%= refuel.cost %></td>
+                    <td class="text-right"><%= sprintf( "%0.02f", refuel.volume ) %></td>
+                    <td class="text-right"><%= sprintf( "%0.03f", refuel.price ) %></td>
+                    <td class="text-right"><%= sprintf( "%0.02f", refuel.cost ) %></td>
                     <td class="text-right"><%= sprintf( "%0.02f", consumption ) if consumption %></td>
                     <td class="text-right">
                       <% if show_delete -%>

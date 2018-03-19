@@ -4,9 +4,27 @@ es:
       refuel: Refuel
     attributes:
       refuel:
-        date: Date 
-        odometer: Odometer
-        volume: Volume 
-        price: Price 
-        cost: Total Cost 
         consumption: Consumption
+        cost: Cost
+        date: Date 
+        full: Full reload 
+        odometer: Odometer 
+        price: Price/litre
+        volume: Litres
+      user:
+        name: Name
+  layout:
+    destroy-confirmation: "Are you sure to delete this reload?"
+    latest-refuels: Last refuels 
+    new-refuel: New refuel
+    save: Save
+    user:
+      confirmation-instructions: "Confirm accout"
+      forgot-password: Remember password 
+      log-in: Log in 
+      my-profile: My profile
+      sign-in: Sign in 
+      sign-out: Sign out
+      sign-up: Register
+      since: "Member since: %s"
+      unlock-instructions: "Unlock instructions"
