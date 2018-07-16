@@ -16,6 +16,4 @@ development:
   database: gas 
 
 production:
-  <<: *default
-  database: gas 
-
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') if ENV['DATABASE_URL'] %>
