@@ -26,7 +26,7 @@ RUN bundle exec rake RAILS_ENV=production DATABASE_URL=mysql2://user:pass@127.0.
 RUN bundle exec rake RAILS_ENV=production DATABASE_URL=mysql2://user:pass@127.0.0.1/dbname SECRET_KEY_BASE=blahblahblah assets:precompile
 
 # Expose a volume so that nginx will be able to read in assets in production.
-VOLUME ["$INSTALL_PATH/public"]
+VOLUME ["/railsapp/public"]
 
 # Start the application with Puma
 CMD bundle exec puma -C config/puma.rb
