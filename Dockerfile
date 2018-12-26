@@ -29,5 +29,5 @@ RUN bundle exec rake RAILS_ENV=production DATABASE_URL=mysql2://user:pass@127.0.
 VOLUME ["/railsapp/public"]
 
 # Run migrations and start the application with Puma
-ENTRYPOINT ["bin/rake", "db:migrate", "db:seed"]
+#ENTRYPOINT ["bin/rake", "db:migrate", "db:seed"]
 CMD bundle exec puma -C config/puma.rb
